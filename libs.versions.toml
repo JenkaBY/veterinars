@@ -1,0 +1,10 @@
+[versions]
+springV3 = "3.2.3"
+
+[libraries]
+#TODO
+
+[plugins]
+spring-boot-v3 = { id = "org.springframework.boot", version.ref = "springV3" }
+
+[bundles]

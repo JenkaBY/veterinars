@@ -1,0 +1,18 @@
+rootProject.name = 'veterinars'
+
+include 'vehicle-service'
+include 'route-service'
+
+dependencyResolutionManagement {
+    versionCatalogs {
+//        from(files("libs.versions.toml"))
+        create('libs') {
+            version("springBootGradlePlugin", "3.2.3")
+
+            plugin("spring-boot", "org.springframework.boot")
+                    .versionRef("springBootGradlePlugin")
+        }
+    }
+}
+
+

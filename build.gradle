@@ -1,0 +1,9 @@
+plugins {
+//    id 'version-catalog'
+}
+group = 'io.by.lt.pl'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
