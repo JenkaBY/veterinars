@@ -5,12 +5,19 @@ include 'route-service'
 
 dependencyResolutionManagement {
     versionCatalogs {
-//        from(files("libs.versions.toml"))
-        create('libs') {
+        fromConfiglibs {
             version("springBootGradlePlugin", "3.2.3")
-
+            version("springDependencyManagementPlugin", "1.1.4")
+//             gradle converts alias to doted notation
+//            the 'spring-boot' alias can be reached by reference fromConfiglibs.plugins.spring.boot.
             plugin("spring-boot", "org.springframework.boot")
                     .versionRef("springBootGradlePlugin")
+            plugin("spring-dependency-management", "io.spring.dependency-management")
+                    .versionRef("springDependencyManagementPlugin")
+        }
+//      a name could be any, so you aren't restricted libs, plugins and so on
+        fromTomlLibs {
+            from(files("libs.versions.toml"))
         }
     }
 }

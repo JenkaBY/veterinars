@@ -1,6 +1,7 @@
 plugins {
     id 'java'
-    alias('libs.plugins.springBoot')
+    alias(fromTomlLibs.plugins.spring.boot)
+    alias(fromConfiglibs.plugins.spring.dependency.management) apply false
 }
 
 group = 'io.by.lt.pl'

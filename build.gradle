@@ -1,4 +1,5 @@
 plugins {
+//    it's required for publishing a toml file on corporate gradle plugin registry
 //    id 'version-catalog'
 }
 group = 'io.by.lt.pl'
