@@ -1,10 +1,17 @@
 [versions]
 springV3 = "3.2.3"
+firebase = "9.2.0"
+firebaseOld = "6.3.0"
+junit = "5.9.1"
 
 [libraries]
-#TODO
+firebase-client = { module = "com.google.firebase:firebase-admin", version.ref = "firebase" }
+firebase-client-legacy = { module = "com.google.firebase:firebase-admin", version.ref = "firebaseOld" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "springV3" }
 
 [bundles]
+junit = ['junit-jupiter-api', 'junit-jupiter-engine']

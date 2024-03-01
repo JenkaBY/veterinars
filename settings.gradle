@@ -8,12 +8,15 @@ dependencyResolutionManagement {
         fromConfiglibs {
             version("springBootGradlePlugin", "3.2.3")
             version("springDependencyManagementPlugin", "1.1.4")
+            version("mockito", "5.10.0")
 //             gradle converts alias to doted notation
 //            the 'spring-boot' alias can be reached by reference fromConfiglibs.plugins.spring.boot.
             plugin("spring-boot", "org.springframework.boot")
                     .versionRef("springBootGradlePlugin")
             plugin("spring-dependency-management", "io.spring.dependency-management")
                     .versionRef("springDependencyManagementPlugin")
+
+            library("mockito-core","org.mockito", "mockito-core").versionRef('mockito')
         }
 //      a name could be any, so you aren't restricted libs, plugins and so on
         fromTomlLibs {

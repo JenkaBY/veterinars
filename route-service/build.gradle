@@ -12,8 +12,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+//    pay attention how reference is built - there's missing libraries in the middle
+    implementation fromTomlLibs.firebase.client
+    testImplementation fromTomlLibs.firebase.client.legacy
+//    pay attention how reference is built - there's missing libraries in the middle
+    testImplementation fromConfiglibs.mockito.core
+//    bundle
+    testImplementation fromTomlLibs.bundles.junit
 }
 
 test {
