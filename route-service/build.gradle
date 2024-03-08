@@ -12,11 +12,13 @@ repositories {
 }
 
 dependencies {
-//    pay attention how reference is built - there's missing libraries in the middle
+//    pay attention how reference is being built - there's missing 'libraries' in the middle
     implementation fromTomlLibs.firebase.client
+
     testImplementation fromTomlLibs.firebase.client.legacy
-//    pay attention how reference is built - there's missing libraries in the middle
+//    pay attention how reference is being built - there's missing 'libraries' in the middle
     testImplementation fromConfiglibs.mockito.core
+
 //    bundle
     testImplementation fromTomlLibs.bundles.junit
 }

@@ -6,6 +6,6 @@ public class FirstTest {
 
     @Test
     void test() {
-        assertTrue(true, "Success");
+        assertTrue(true, "Because you're looser");
     }
 }

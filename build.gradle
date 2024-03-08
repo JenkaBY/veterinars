@@ -1,9 +1,21 @@
 plugins {
 //    it's required for publishing a toml file on corporate gradle plugin registry
 //    id 'version-catalog'
+    id 'java'
 }
 group = 'io.by.lt.pl'
 version = '1.0-SNAPSHOT'
+
+
+allprojects {
+
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+}
 
 repositories {
     mavenCentral()
