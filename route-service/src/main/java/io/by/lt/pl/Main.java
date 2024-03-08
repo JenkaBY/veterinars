@@ -7,4 +7,8 @@ public class Main {
         System.out.println("Hello world! U+1F4A9");
         System.out.println(welcomeMsg);
     }
+
+    void main(){
+        System.out.println("Test");
+    }
 }

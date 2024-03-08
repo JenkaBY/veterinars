@@ -3,15 +3,25 @@ springV3 = "3.2.3"
 firebase = "9.2.0"
 firebaseOld = "6.3.0"
 junit = "5.9.1"
+h2 = '2.2.224'
+liquibase = '4.26.0'
 
 [libraries]
 firebase-client = { module = "com.google.firebase:firebase-admin", version.ref = "firebase" }
 firebase-client-legacy = { module = "com.google.firebase:firebase-admin", version.ref = "firebaseOld" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+spring-boot-starter-jdbc = { module = 'org.springframework.boot:spring-boot-starter-jdbc', version.ref = 'springV3' }
+spring-boot-starter-web = { module = 'org.springframework.boot:spring-boot-starter-web', version.ref = 'springV3' }
+spring-boot-starter-test = { module = 'org.springframework.boot:spring-boot-starter-test', version.ref = 'springV3' }
+h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
+liquibase-core = { module = 'org.liquibase:liquibase-core', version.ref = 'liquibase' }
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "springV3" }
 
 [bundles]
 junit = ['junit-jupiter-api', 'junit-jupiter-engine']
+spring-core = ['spring-boot-starter-jdbc', 'spring-boot-starter-web']
+spring-test = ['junit-jupiter-api', 'junit-jupiter-engine', 'spring-boot-starter-test']
+db-libs = ['h2', 'liquibase-core']
