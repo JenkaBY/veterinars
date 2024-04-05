@@ -5,3 +5,6 @@ spring:
     password=
   liquibase:
     change-log: classpath:changelogs/changeLog.yaml
+downstream:
+  service:
+    vehicle-url: localhost:8091
