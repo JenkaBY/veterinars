@@ -8,7 +8,9 @@ version = '1.0-SNAPSHOT'
 
 
 allprojects {
-
+    repositories {
+        mavenCentral()
+    }
 
     java {
         toolchain {
@@ -17,6 +19,4 @@ allprojects {
     }
 }
 
-repositories {
-    mavenCentral()
-}
+
