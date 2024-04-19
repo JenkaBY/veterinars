@@ -1,6 +1,8 @@
 package io.by.lt.pl.config;
 
 import io.by.lt.pl.service.VehicleDownstreamService;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
@@ -11,12 +13,11 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 public class DownstreamServiceConfig {
 
     @Bean
-    public VehicleDownstreamService vehicleService() {
-        RestClient restClient = RestClient.builder().baseUrl("http:\\localhost:8091").build();
-        RestClientAdapter adapter = RestClientAdapter.create(restClient);
-        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
+    public VehicleDownstreamService vehicleService(@Value("${downstream.service.vehicle-url}") String vehicleUrl) {
+        var restClient = RestClient.builder().baseUrl(vehicleUrl).build();
+        var adapter = RestClientAdapter.create(restClient);
+        var factory = HttpServiceProxyFactory.builderFor(adapter).build();
 
-        VehicleDownstreamService service = factory.createClient(VehicleDownstreamService.class);
-        return service;
+        return factory.createClient(VehicleDownstreamService.class);
     }
 }

@@ -1,3 +1,9 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+
 rootProject.name = 'veterinars'
 
 include 'vehicle-service'
