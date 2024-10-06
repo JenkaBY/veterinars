@@ -8,6 +8,7 @@ rootProject.name = 'veterinars'
 
 include 'vehicle-service'
 include 'route-service'
+include 'e2e'
 
 dependencyResolutionManagement {
     versionCatalogs {

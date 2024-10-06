@@ -1,0 +1,32 @@
+services:
+#  zipkin-ui:
+#    image: ghcr.io/openzipkin/zipkin-ui:${TAG:-latest}
+#    container_name: zipkin-ui
+#    environment:
+#      # Change this if connecting to a different zipkin server
+#      - ZIPKIN_BASE_URL=http://zipkin:9411
+#    ports:
+#      - "8099:80"
+#    depends_on:
+#      zipkin:
+#        condition: service_healthy
+  zipkin:
+    image: ghcr.io/openzipkin/zipkin:${TAG:-latest}
+    container_name: zipkin
+    environment:
+      - STORAGE_TYPE=mem
+#      - MYSQL_HOST=mysql
+      - ZIPKIN_QUERY_ALLOWED_ORIGINS=*
+    ports:
+      - "9411:9411"
+
+  postgres:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=veterinars_db
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    ports:
+      - '5432:5432'
+

@@ -5,19 +5,29 @@ firebaseOld = "6.3.0"
 junit = "5.9.1"
 h2 = '2.2.224'
 liquibase = '4.26.0'
-springdocVersion='2.0.2'
+springdocVersion = '2.0.2'
+cucumberVersion = '7.19.0'
+assertJVersion = '3.26.3'
+junitPlatformSuite = '1.11.1'
 
 [libraries]
 firebase-client = { module = "com.google.firebase:firebase-admin", version.ref = "firebase" }
 firebase-client-legacy = { module = "com.google.firebase:firebase-admin", version.ref = "firebaseOld" }
-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api"}
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+junit-platform-suit = { module = "org.junit.platform:junit-platform-suite" }
+
 spring-boot-starter-jdbc = { module = 'org.springframework.boot:spring-boot-starter-jdbc', version.ref = 'springV3' }
 spring-boot-starter-web = { module = 'org.springframework.boot:spring-boot-starter-web', version.ref = 'springV3' }
 spring-boot-starter-test = { module = 'org.springframework.boot:spring-boot-starter-test', version.ref = 'springV3' }
+
 swagger-ui = { module = 'org.springdoc:springdoc-openapi-starter-webmvc-ui', version.ref = 'springdocVersion' }
 h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
 liquibase-core = { module = 'org.liquibase:liquibase-core', version.ref = 'liquibase' }
+cucumber-java = { module = 'io.cucumber:cucumber-java', version.ref = 'cucumberVersion' }
+cucumber-junit = { module = 'io.cucumber:cucumber-junit-platform-engine', version.ref = 'cucumberVersion' }
+cucumber-spring = { module = 'io.cucumber:cucumber-spring', version.ref = 'cucumberVersion' }
+assertj-core = { module = 'org.assertj:assertj-core' }
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "springV3" }
@@ -25,5 +35,6 @@ spring-boot = { id = "org.springframework.boot", version.ref = "springV3" }
 [bundles]
 junit = ['junit-jupiter-api', 'junit-jupiter-engine']
 spring-core = ['spring-boot-starter-jdbc', 'spring-boot-starter-web', 'swagger-ui']
-spring-test = ['junit-jupiter-api', 'junit-jupiter-engine', 'spring-boot-starter-test']
+spring-test = ['junit-jupiter-api', 'junit-jupiter-engine', 'spring-boot-starter-test', 'assertj-core']
 db-libs = ['h2', 'liquibase-core']
+cucumber = ['cucumber-java', 'cucumber-junit', 'cucumber-spring', 'junit-platform-suit']

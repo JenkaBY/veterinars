@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    alias(fromTomlLibs.plugins.spring.boot)
+    alias(fromConfiglibs.plugins.spring.dependency.management) apply false
+}
+
+group = 'io.by.lt.pl.e2e'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation project(':route-service')
+    testImplementation fromTomlLibs.bundles.spring.test
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    testImplementation fromTomlLibs.bundles.cucumber
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
